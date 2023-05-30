@@ -14,7 +14,7 @@ int Menu(void)
      printf("\n\t\t5. Comprar producto(s)");//Nueva opcion
      printf("\n\t\t6. Imprimir registro de productos");//Nueva opcion
      printf("\n\t\t7. Calcular total de productos comprados");//Nueva opcion 
-     printf("\n\t\t8. Imprimir factura de prodcutos comprados \"productos.txt\"");
+     printf("\n\t\t8. Imprimir factura de productos comprados \"productos.txt\"");
      printf("\n\t\t9. Finalizar programa");
      printf("\n\n");
      printf("\n\t\t   Elija su opción: ");

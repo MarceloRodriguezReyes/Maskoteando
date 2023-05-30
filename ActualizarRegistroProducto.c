@@ -9,7 +9,7 @@ void ActualizarRegistroProducto(void)
  FILE *fptr;
 
 //Recordar cambiar la direccion del archivo
- if((fptr = fopen("C:\\_I Semestre 2023\\MP\\Clase 34 - (15May)\\TransaccionesBanco\\credito.dat", "r+")) == NULL)
+ if((fptr = fopen("C:\\C:\\Users\\marcelor\\Desktop\\Maskoteando", "r+")) == NULL)
     printf("\nEl archivo no se pudo abrir");
  else
   {
@@ -35,13 +35,13 @@ void ActualizarRegistroProducto(void)
               dproducto.precio, dproducto.cantidadproducto,
               dproducto.descproducto);
     printf("\nIngrese el nombre del producto: ");
-     scanf(" %[^\n]", &dproducto.nombre); 
+     scanf(" %s", dproducto.nombre); 
      printf("\nIngrese el precio del producto: ");
      scanf("%f", &dproducto.precio);  
      printf("\nIngrese la cantidad disponible del producto: ");
      scanf("%d", &dproducto.cantidadproducto);
      printf("\nIngrese una descripcion sobre el producto: ");
-     scanf(" %[^\n]", &dproducto.descproducto); 
+     scanf(" %s", dproducto.descproducto); 
 
 
     printf("\n");

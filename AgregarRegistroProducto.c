@@ -10,7 +10,7 @@ void AgregarRegistroProducto(void)
  FILE *fptr1, *fptr2;
 
 //Recordar cambiar la direccion del archivo
- if((fptr1 = fopen("C:\\_I Semestre 2023\\MP\\Clase 34 - (15May)\\TransaccionesBanco\\credito.dat", "w")) == NULL)
+ if((fptr1 = fopen("C:\\C:\\Users\\marcelor\\Desktop\\Maskoteando", "w")) == NULL)
       printf("\nEl archivo no se pudo crear");
 
  else
@@ -33,13 +33,14 @@ void AgregarRegistroProducto(void)
     while(dproducto.idproducto != 0)
     {
      printf("\nIngrese el nombre del producto: ");
-     scanf(" %[^\n]", &dproducto.nombre); 
+     scanf(" %s ", dproducto.nombre); 
      printf("\nIngrese el precio del producto: ");
      scanf("%f", &dproducto.precio);  
      printf("\nIngrese la cantidad disponible del producto: ");
      scanf("%d", &dproducto.cantidadproducto);
      printf("\nIngrese una descripcion sobre el producto: ");
-     scanf(" %[^\n]", &dproducto.descproducto); 
+     scanf(" %s ", dproducto.descproducto); 
+    //Le quité %[^\n] que antes tenían las variables char
 
      fseek(fptr2, (dproducto.idproducto - 1) * sizeof(struct productos), SEEK_SET);
      fwrite(&dproducto, sizeof(struct productos), 1, fptr2);
