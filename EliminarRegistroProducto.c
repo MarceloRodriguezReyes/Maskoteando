@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include "Datosproducto.h"
 
-void ConsultarRegistroProducto(void)
+void EliminarRegistroProducto()
 {
   FILE *fptr;
   int idproducto;
-  struct productos dproducto;
+  struct productos dproducto, bproducto = {0, "", 0.0 ,0 , ""};
 
   //Recordar cambiar la direccion del archivo
   if((fptr = fopen("C:\\C:\\Users\\marcelor\\Desktop\\Maskoteando", "r+")) == NULL)
      printf("\nEl archivo no se pudo abrir");
   else
    {
-     printf("Ingrese la id del producto que desea consultar (1-100): ");
+     printf("Ingrese la id del producto que desea eliminar (1-100): ");
      scanf("%d", &idproducto);
 
      fseek(fptr, (idproducto - 1) * sizeof(struct productos), SEEK_SET);
@@ -28,18 +28,13 @@ void ConsultarRegistroProducto(void)
      else
       {
        fseek(fptr, (idproducto - 1) * sizeof(struct productos), SEEK_SET);
-       fwrite(&dproducto, sizeof(struct productos), 1, fptr);
-       printf("\n");
-       printf("%s\t %s\t %s\t %s\t %s\n",
-             "ID", "Nombre", "Precio", "Cantidad", "Descripcion");
-       printf("%d\t %s\t %.2f\t %d\t\t %s\n\n",
-              dproducto.idproducto, dproducto.nombre,
-              dproducto.precio, dproducto.cantidadproducto,
-              dproducto.descproducto);
+       fwrite(&bproducto, sizeof(struct productos), 1, fptr);
+       printf("\nRegistro %d eliminado", idproducto);
        printf("\n");
        system("pause");
       }
    }
-       fclose(fptr);
-  return;
+      fclose(fptr);
+ return;
 }
+

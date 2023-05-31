@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "Datosproducto.h"
 
-void ActualizarRegistroProducto(void)
+void ActualizarRegistroProducto()
 {
  int idproducto;
  struct productos dproducto;
