@@ -35,11 +35,11 @@ void CrearArchivoProductos()
      printf("\nIngrese el nombre del producto: ");
      scanf(" %[^\n]", &dproductos.nombre);
      printf("\nIngrese el precio del producto: ");
-     scanf("%d", &dproductos.precio);
+     scanf("%f", &dproductos.precio);
      printf("\nIngrese la cantidad del producto: ");
      scanf("%d", &dproductos.cantidadproducto);
      printf("\nIngrese la descripcion del producto: ");
-     scanf("%f", &dproductos.descproducto);
+     scanf("%s", &dproductos.descproducto);
 
      fseek(fptr2, (dproductos.idproducto - 1) * sizeof(struct productos), SEEK_SET);
      fwrite(&dproductos, sizeof(struct productos), 1, fptr2);

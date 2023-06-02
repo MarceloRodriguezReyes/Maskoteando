@@ -4,61 +4,50 @@
 
 void ActualizarRegistroProducto()
 {
- int idproducto;
- struct productos dproducto;
- FILE *fptr;
+    struct productos dproductos;
+    int idproductos;
+    FILE *fptr;
 
-//Recordar cambiar la direccion del archivo
- if((fptr = fopen("C:\\C:\\Users\\marcelor\\Desktop\\Maskoteando", "r+")) == NULL)
-    printf("\nEl archivo no se pudo abrir");
- else
-  {
-    printf("Ingrese la id del producto que desea actualizar (1-100): ");
-    scanf("%d", &idproducto);
+    if((fptr = fopen("C:\\Users\\sayer\\OneDrive\\Escritorio\\Maskoteando\\inventario.dat", "r+")) == NULL)
+    {
+        printf("\nEl archivo no se pudo abrir");
+        return;
+    }
 
-    fseek(fptr, (idproducto - 1) * sizeof(struct productos), SEEK_SET);
-    fread(&dproducto, sizeof(struct productos), 1, fptr);
+    printf("\nIngrese el id del producto a modificar (1-100): ");
+    scanf("%d", &idproductos);
 
-    if(dproducto.idproducto == 0)
-     {
-      printf("\nEl registro del producto %d no tiene información", idproducto);
-      printf("\n");
-      system("pause");
-     }
-    else
-     {
-    printf("\n");
-    printf("%s\t %s\t %s\t %s\t %s\n",
-             "ID", "Nombre", "Precio", "Cantidad", "Descripcion");
-    printf("%d\t %s\t %.2f\t %d\t\t %s\n\n",
-              dproducto.idproducto, dproducto.nombre,
-              dproducto.precio, dproducto.cantidadproducto,
-              dproducto.descproducto);
-    printf("\nIngrese el nombre del producto: ");
-     scanf(" %s", dproducto.nombre); 
-     printf("\nIngrese el precio del producto: ");
-     scanf("%f", &dproducto.precio);  
-     printf("\nIngrese la cantidad disponible del producto: ");
-     scanf("%d", &dproducto.cantidadproducto);
-     printf("\nIngrese una descripcion sobre el producto: ");
-     scanf(" %s", dproducto.descproducto); 
+    fseek(fptr, (idproductos - 1) * sizeof(struct productos), SEEK_SET);
+    fread(&dproductos, sizeof(struct productos), 1, fptr);
 
+    if(dproductos.idproducto == 0)
+    {
+        printf("\nNo se encontro ningun producto con el id %d", idproductos);
+        fclose(fptr);
+        return;
+    }
 
-    printf("\n");
-    printf("%s\t %s\t %s\t %s\t %s\n",
-             "ID", "Nombre", "Precio", "Cantidad", "Descripcion");
-    printf("%d\t %s\t %.2f\t %d\t\t %s\n\n",
-              dproducto.idproducto, dproducto.nombre,
-              dproducto.precio, dproducto.cantidadproducto,
-              dproducto.descproducto);
+    printf("\nRegistro actual:");
+    printf("\nID: %d", dproductos.idproducto);
+    printf("\nNombre: %s", dproductos.nombre);
+    printf("\nPrecio: %.2f", dproductos.precio);
+    printf("\nCantidad: %d", dproductos.cantidadproducto);
+    printf("\nDescripcion: %s", dproductos.descproducto);
 
-       printf("\n");
-       system("pause");
+    printf("\n\nIngrese el nuevo nombre: ");
+    scanf("%s", dproductos.nombre);
+    printf("\nIngrese el nuevo precio del producto: ");
+    scanf("%f", &dproductos.precio);
+    printf("\nIngrese la nueva cantidad del producto: ");
+    scanf("%d", &dproductos.cantidadproducto);
+    printf("\nIngrese la nueva descripcion del producto: ");
+    scanf("%s", dproductos.descproducto);
 
-       fseek(fptr, (idproducto - 1) * sizeof(struct productos), SEEK_SET);
-       fwrite(&dproducto, sizeof(struct productos), 1, fptr);
-     }
-  }
-       fclose(fptr);
- return;
+    fseek(fptr, (idproductos - 1) * sizeof(struct productos), SEEK_SET);
+    fwrite(&dproductos, sizeof(struct productos), 1, fptr);
+
+    printf("\nEl registro se ha actualizado correctamente.");
+
+    fclose(fptr);
+    return;
 }

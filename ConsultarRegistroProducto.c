@@ -9,7 +9,7 @@ void ConsultarRegistroProducto()
   struct productos dproducto;
 
   //Recordar cambiar la direccion del archivo
-  if((fptr = fopen("C:\\C:\\Users\\marcelor\\Desktop\\Maskoteando", "r+")) == NULL)
+  if((fptr = fopen("C:\\Users\\sayer\\OneDrive\\Escritorio\\Maskoteando\\inventario.dat", "r+")) == NULL)
      printf("\nEl archivo no se pudo abrir");
   else
    {
@@ -30,12 +30,12 @@ void ConsultarRegistroProducto()
        fseek(fptr, (idproducto - 1) * sizeof(struct productos), SEEK_SET);
        fwrite(&dproducto, sizeof(struct productos), 1, fptr);
        printf("\n");
-       printf("%s\t %s\t %s\t %s\t %s\n",
-             "ID", "Nombre", "Precio", "Cantidad", "Descripcion");
-       printf("%d\t %s\t %.2f\t %d\t\t %s\n\n",
-              dproducto.idproducto, dproducto.nombre,
-              dproducto.precio, dproducto.cantidadproducto,
-              dproducto.descproducto);
+       printf("%-5s %-20s %-10s %-10s %-50s\n",
+          "ID", "Nombre", "Precio", "Cantidad", "Descripcion");
+       printf("%-5d %-20s %-10.2f %-10d %-50s\n",
+           dproducto.idproducto, dproducto.nombre,
+           dproducto.precio, dproducto.cantidadproducto,
+           dproducto.descproducto);
        printf("\n");
        system("pause");
       }
