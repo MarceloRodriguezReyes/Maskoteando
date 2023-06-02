@@ -10,6 +10,8 @@ void EliminarRegistroProducto();
 void ConsultarRegistroProducto();
 void GenerarFacturaProducto();
 
+//gcc principal.c Menu.c AgregarRegistroProducto.c ConsultarRegistroProducto.c ActualizarRegistroProducto.c EliminarRegistroProducto.c CrearArchivoProductos.c Datosproducto.h GenerarFacturaProducto.c -o programa.exe
+
 
 int main()
 {
