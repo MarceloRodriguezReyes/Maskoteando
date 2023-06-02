@@ -14,18 +14,16 @@ int MostrarMenu()
      printf("\n\t\t4. Actualizar registro de producto");
      printf("\n\t\t5. Eliminar registro de producto");
      printf("\n\t\t6. Generar factura de venta de productos");
-     printf("\n\t\t7. Imprimir a Pantalla");
-     printf("\n\t\t8. Imprimir a Archivo \"productos.txt\"");
    //   printf("\n\t\t6. Comprar producto(s)");//Nueva opcion
    //   printf("\n\t\t7. Imprimir registro de productos");//Nueva opcion
    //   printf("\n\t\t8. Calcular total de productos comprados");//Nueva opcion 
    //   printf("\n\t\t9. Imprimir factura de productos comprados \"productos.txt\"");
-     printf("\n\t\t9. Finalizar programa");
+     printf("\n\t\t7. Finalizar programa");
      printf("\n\n");
      printf("\n\t\t   Elija su opcion: ");
      scanf("%d", &mopcion);
   }
-  while(!(mopcion >= 1 && mopcion <= 9));
+  while(!(mopcion >= 1 && mopcion <= 7));
   return(mopcion);
  }
 

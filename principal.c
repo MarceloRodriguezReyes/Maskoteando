@@ -8,11 +8,8 @@ void AgregarRegistroProducto();
 void ActualizarRegistroProducto();
 void EliminarRegistroProducto();
 void ConsultarRegistroProducto();
-/* Faltan los void de
-comprarproductos
-imprimir registro de productos
-calcular total de productos comprados
-imprimir factura de productos comprados */
+void GenerarFacturaProducto();
+
 
 int main()
 {
@@ -37,27 +34,10 @@ int main()
         case 5:
             EliminarRegistroProducto();
             break;
-        /*case 6: ConsultarRegistroCuenta();
-                 system("cls");
-                 Menu();
-                 //break;
-        case 7: OrdenarRegistrosCuenta();
-                 system("cls");
-                 Menu();
-                 //break;
-        case 8: Imprimir_a_Pantalla();
-                 system("cls");
-                 Menu();
-                 //break;
-        case 9: Imprimir_a_Archivo();
-                 system("cls");
-                 Menu();
-                 //break;
-        case 10: Ayuda();
-                 system("cls");
-                 Menu();
-                 //break;*/
-        case 9:
+        case 6: 
+            GenerarFacturaProducto();
+            break;
+        case 7:
             return 0; // Salir del programa
         default:
             printf("Opción inválida. Introduce un número válido.\n");
