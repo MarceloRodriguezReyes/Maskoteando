@@ -19,9 +19,9 @@ void AgregarRegistroProducto()
 
      if(dproductos.idproducto != 0)
       {
-       printf("\nEl id de ese producto %d ya contiene información", dproductos.idproducto);
-       printf("\n");
-       system("pause");
+       printf("\nEl id de ese producto %d ya contiene informacion", dproductos.idproducto);
+      //  printf("\n");
+      //  system("pause");
       }
      else
       {
@@ -38,8 +38,16 @@ void AgregarRegistroProducto()
 
         fseek(fptr, (dproductos.idproducto - 1) * sizeof(struct productos), SEEK_SET);
         fwrite(&dproductos, sizeof(struct productos), 1, fptr);
+
+        printf("\nEl producto fue creado correctamente");
+
+      //   printf("\n");
+      //  system("pause");
       }
    }
-        fclose(fptr);
+
+   printf("\n");
+       system("pause");
+     
  return;
 }

@@ -18,29 +18,24 @@ int main()
 {
     int opcion;
 
-    do {
+    while (1) {
         opcion = MostrarMenu();
         switch (opcion)
         {
         case 1:
             CrearArchivoProductos();
-            //system("cls");
             break;
         case 2:
             AgregarRegistroProducto();
-            //system("cls");
             break;
         case 3:
             ConsultarRegistroProducto();
-            //system("cls");
             break;
         case 4:
             ActualizarRegistroProducto();
-            //system("cls");
             break;
         case 5:
             EliminarRegistroProducto();
-            //system("cls");
             break;
         /*case 6: ConsultarRegistroCuenta();
                  system("cls");
@@ -63,10 +58,15 @@ int main()
                  Menu();
                  //break;*/
         case 9:
+            return 0; // Salir del programa
+        default:
+            printf("Opción inválida. Introduce un número válido.\n");
             break;
         }
 
-    } while (opcion != 9);
+        // Limpiar la pantalla antes de mostrar el menú nuevamente
+        system("cls");
+    }
 
     return 0;
 }

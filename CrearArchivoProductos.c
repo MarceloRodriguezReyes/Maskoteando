@@ -18,7 +18,7 @@ void CrearArchivoProductos()
       fwrite(&bproductos, sizeof(struct productos), 1, fptr1);
 
     fclose(fptr1);
-    printf("\nEl archivo se creó correctamente");
+    printf("\nEl archivo se creo correctamente");
   }
 
 /*Guardar datos directamente a un archivo de acceso directo */
@@ -27,7 +27,7 @@ void CrearArchivoProductos()
       printf("\nEl archivo no se pudo abrir");
  else
   {
-    printf("\nIngrese el id del producto (1-100 ó 0 para finalizar entrada): ");
+    printf("\nIngrese el id del producto (1-100 o 0 para finalizar entrada): ");
     scanf("%d", &dproductos.idproducto);
 
     while(dproductos.idproducto != 0)
